@@ -5,11 +5,13 @@ import {
   PERFORMANCE_REVIEW_API,
 } from "../../constants/apiEndPoints";
 import { get, post } from "../../helpers/api_helpers";
+import { formatDate } from "../../utilities/helper";
 const PerformanceReviewForm = ({
   editPerformanceReview,
   fetch,
   setPerformanceReviewEdit,
 }) => {
+  console.log(editPerformanceReview);
   const [errors, setErrors] = useState({});
   // const [dropdown, setDropdown] = useState([]);
   const initialState = {
@@ -30,6 +32,11 @@ const PerformanceReviewForm = ({
   useEffect(() => {
     fetchManager();
   }, []);
+  useEffect(() => {
+    if (editPerformanceReview) {
+      setPerformanceReview(editPerformanceReview);
+    }
+  }, [editPerformanceReview]);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -84,7 +91,7 @@ const PerformanceReviewForm = ({
         }
       }
     } else {
-      console.log("Validation failed.");
+      toast.warning("Validation failed!");
     }
   };
   return (
@@ -141,7 +148,7 @@ const PerformanceReviewForm = ({
                 autoComplete="off"
                 placeholder="Enter department Name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
-                value={performanceReview.reviewDate}
+                value={formatDate(performanceReview.reviewDate)}
                 onChange={handleChange}
               />
               {errors.reviewDate && (

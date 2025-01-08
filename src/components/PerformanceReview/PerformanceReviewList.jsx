@@ -7,7 +7,7 @@ import PerformanceReviewForm from "./PerformanceReviewForm";
 
 const PerformanceReviewList = () => {
   const [performanceReviewList, setPerformanceReviewList] = useState([]);
-  const [PerformanceReviewEdit, setPerformanceReviewEdit] = useState(null);
+  const [performanceReviewEdit, setPerformanceReviewEdit] = useState(null);
   const [id, setId] = useState(null);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(5);
@@ -56,9 +56,9 @@ const PerformanceReviewList = () => {
     <>
       <PerformanceReviewForm
         fetch={fetchPerformanceReview}
-        editPerformanceReview={PerformanceReviewEdit}
+        editPerformanceReview={performanceReviewEdit}
         setPerformanceReviewEdit={setPerformanceReviewEdit}
-        key={PerformanceReviewEdit?.PerformanceReviewId}
+        key={performanceReviewEdit?.PerformanceReviewId || "new"}
       />
 
       {/* <!-- Right Column --> */}
