@@ -18,6 +18,11 @@ const Header = () => {
                 Performance Review
               </a>
             </li>
+            <li>
+              <a href="/department/DepartmentAvgPerformance">
+                Department Average Performance
+              </a>
+            </li>
           </ul>
         </div>
         <div></div>

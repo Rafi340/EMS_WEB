@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DepartmentAvgPerformance from "./components/Department/DepartmentAvgPerformance";
 import DepartmentList from "./components/Department/DepartmentList";
 import EmployeeList from "./components/Employee/EmployeeList";
 import PerformanceReviewList from "./components/PerformanceReview/PerformanceReviewList";
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/performanceReview/performanceReviewList",
         element: <PerformanceReviewList />,
+      },
+      {
+        path: "/department/DepartmentAvgPerformance",
+        element: <DepartmentAvgPerformance />,
       },
     ],
   },

@@ -56,8 +56,8 @@ const PerformanceReviewForm = ({
     if (!performanceReview.reviewDate) {
       newErrors.reviewDate = "Review Date is required.";
     }
-    if (!performanceReview.reviewScore) {
-      newErrors.reviewScore = "Review Score is required.";
+    if (!performanceReview.reviewScore || performanceReview.reviewScore > 10) {
+      newErrors.reviewScore = "Review Score is between 1 - 10.";
     }
 
     setErrors(newErrors);
